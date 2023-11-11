@@ -13,5 +13,5 @@
 
 void myprompt(void)
 {
-printf("simple_shell$ ");
+mess("simple_shell$ ");
 }

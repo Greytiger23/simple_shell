@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include "shell.h"
 
 /**
  * main - simple shell function
@@ -12,15 +13,12 @@
 
 int main(void)
 {
-char *a, **b;
+char a[120];
 while (1)
 {
 myprompt();
-a = myline();
-b = args(a);
-myexcu(b);
+myline(a, sizeof(a));
+excu(a);
 }
-free(a);
-free(b);
 return (0);
 }

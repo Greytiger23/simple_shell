@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include "shell.h"
 #define MAX_BUFFER_SIZE 64
 
 /**
@@ -14,13 +15,13 @@
 
 char **split(char *b)
 {
-Int buff = MAX_BUFFER_SIZE, sum = 0;
+int buff = MAX_BUFFER_SIZE, sum = 0;
 char **c = malloc(buff * sizeof(char *));
 char *x;
-const char *y = “ \n\r\t\a”;
+const char *y = " \n\r\t\a";
 if (!c)
 {
-printf(“shell: allocation error\n”);
+mess("shell: allocation error\n");
 exit(EXIT_FAILURE);
 }
 x = strtok(b, y);
@@ -31,14 +32,14 @@ sum++;
 if (sum >= buff)
 {
 buff += MAX_BUFFER_SIZE;
-c = realloc(c, buff * sizeof(char *));
+c = realloc(c, buff *sizeof(char *));
 if (!c)
 {
-printf(“shell: allocation error\n”);
+mess("shell: allocation error\n");
 exit(EXIT_FAILURE);
 }
 }
-X = strtok(NULL, y);
+x = strtok(NULL, y);
 }
 c[sum] = NULL;
 return (c);

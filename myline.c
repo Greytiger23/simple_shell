@@ -8,26 +8,25 @@
 
 /**
  * myline - function that gets the command
+ * @b: char
+ * @x: size of char
  * Return: void
  */
 
-void *myline(void)
+void myline(char *b, size_t x)
 {
-char *a = NULL;
-size_t x = 0;
-ssize_t y;
-y = getline(&a, &x, stdin);
-if (y == -1)
+if (fgets(b, x, stdin) == NULL)
 {
 if (feof(stdin))
 {
+mess("\n");
 exit(EXIT_SUCCESS);
 }
 else
 {
-perror(“shell”);
+mess("Error reading command\n");
 exit(EXIT_FAILURE);
 }
 }
-return (a);
+b[strcspn(b, "\n")] = '\0';
 }
