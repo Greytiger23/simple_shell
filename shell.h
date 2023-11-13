@@ -12,4 +12,5 @@ void mess(const char *a);
 char **split(char *b);
 void excu(const char *b);
 void myline(char *b, size_t x);
+void argu(char *b);
 #endif
