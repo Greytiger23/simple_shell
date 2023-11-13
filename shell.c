@@ -18,6 +18,11 @@ while (1)
 {
 myprompt();
 myline(a, sizeof(a));
+if (strcmp(a, "exit") == 0)
+{
+mess("Exiting shell.\n");
+break;
+}
 excu(a);
 }
 return (0);
