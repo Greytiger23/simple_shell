@@ -13,5 +13,8 @@
 
 void myprompt(void)
 {
+if (isatty(STDIN_FILENO))
+{
 mess("simple_shell$ ");
+}
 }
