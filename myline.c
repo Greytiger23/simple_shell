@@ -27,6 +27,7 @@ else
 mess("Error reading command\n");
 exit(EXIT_FAILURE);
 }
+free(b);
 }
 b[strcspn(b, "\n")] = '\0';
 }
