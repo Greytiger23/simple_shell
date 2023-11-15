@@ -15,7 +15,7 @@
 
 void myline(char *b, size_t x)
 {
-if (fgets(b, x, stdin) == NULL)
+if (getline(&b, &x, stdin) == -1)
 {
 if (feof(stdin))
 {
