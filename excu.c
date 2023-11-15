@@ -32,9 +32,11 @@ d = strtok(NULL, " ");
 ac++;
 }
 av[ac] = NULL;
-execvp(av[0], av);
+if (execve(av[0], av, NULL) == -1)
+{
 mess("Error with command\n");
 exit(EXIT_FAILURE);
+}
 }
 else
 {
