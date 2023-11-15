@@ -7,7 +7,7 @@
 #include "shell.h"
 
 /**
- * main - simple shell function
+ * shell - simple shell function
  * Return: void
  */
 
