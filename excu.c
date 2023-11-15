@@ -11,26 +11,16 @@
  * Return: void
  */
 
-void excu(const char *b)
+void excu(char **b)
 {
-pid_t child_pid;
-int s;
-char *av[] = {NULL, NULL};
-child_pid = fork();
-if (child_pid == -1)
+char *a = NULL;
+if (b)
 {
+a = b[0];
+if (execve(a, b, NULL) == -1)
+{
+perror("Error: there is no file\n");
 exit(EXIT_FAILURE);
 }
-if (child_pid == 0)
-{
-if (execve(av[0], av, NULL) == -1)
-{
-printf("%s: there is no file\n", b);
-exit(EXIT_FAILURE);
-}
-}
-else
-{
-wait(&s);
 }
 }

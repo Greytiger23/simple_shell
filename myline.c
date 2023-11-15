@@ -24,10 +24,9 @@ exit(EXIT_SUCCESS);
 }
 else
 {
-mess("Error reading command\n");
+perror("Error reading command\n");
 exit(EXIT_FAILURE);
 }
-free(b);
 }
 b[strcspn(b, "\n")] = '\0';
 }

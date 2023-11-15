@@ -8,17 +8,11 @@
 
 /**
  * main - entry point
- * @ac: number of arguments
- * @av: array of arguments
- * @e: char
  * Return: void
  */
 
-int main(int ac, char **av, char **e)
+int main(void)
 {
-if (ac == 1)
-{
-myprompt(av, e);
-}
+loop();
 return (0);
 }

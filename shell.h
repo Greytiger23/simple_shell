@@ -8,12 +8,13 @@
 #include <stdbool.h>
 
 extern char **environ;
-int main(int ac, char **av, char **e);
-void myprompt(char **n, char **e);
+void _stat(int ac, char *av[]);
+void myprompt(void);
 void mess(const char *a);
 char **split(char *b);
-void excu(const char *b);
+void excu(char **b);
 void myline(char *b, size_t x);
 void argu(char *b);
 void print_env(void);
+void loop(void);
 #endif
