@@ -18,16 +18,6 @@ while (1)
 {
 myprompt();
 myline(a, sizeof(a));
-if (strcmp(a, "exit") == 0)
-{
-mess("Exiting shell.\n");
-break;
-}
-if (strcmp(a, "env") == 0)
-{
-print_env();
-continue;
-}
 excu(a);
 }
 return (0);
