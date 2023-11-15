@@ -8,7 +8,8 @@
 #include <stdbool.h>
 
 extern char **environ;
-void myprompt(void);
+int main(int ac, char **av, char **e);
+void myprompt(char **n, char **e);
 void mess(const char *a);
 char **split(char *b);
 void excu(const char *b);

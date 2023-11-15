@@ -7,18 +7,18 @@
 #include "shell.h"
 
 /**
- * main - simple shell function
+ * main - entry point
+ * @ac: number of arguments
+ * @av: array of arguments
+ * @e: char
  * Return: void
  */
 
-int main(void)
+int main(int ac, char **av, char **e)
 {
-char a[120];
-while (1)
+if (ac == 1)
 {
-myprompt();
-myline(a, sizeof(a));
-excu(a);
+myprompt(av, e);
 }
 return (0);
 }
