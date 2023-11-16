@@ -9,19 +9,17 @@
 
 /**
  * main - entry point
+ * @ac: number of argu
+ * @av: array of argu
+ * @env: envi
  * Return: void
  */
 
-int main(void)
+int main(int ac, char **av, char **env)
 {
-char i[MAX_INPUT_SIZE];
-char **av;
-while (1)
+if (ac == 1)
 {
-myprompt();
-myline(i, sizeof(i));
-av = args(i);
-excu(av);
+loop(av, env);
 }
 printf("Exiting shell...\n");
 return (0);
