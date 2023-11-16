@@ -13,38 +13,13 @@
 
 void loop(void)
 {
-char i[128], *y, **av;
-char *x = NULL, *b = NULL;
-const char *c = " \n";
-int sum = 0, e;
+char i[128];
+char **av;
 while (1)
 {
 myprompt();
 myline(i, sizeof(i));
-b = malloc(sizeof(i));
-if (b == NULL)
-{
-perror(": memory allocation error");
-}
-strcpy(b, x);
-y = strtok(x, c);
-while (y != NULL)
-{
-sum++;
-y = strtok(NULL, c);
-}
-sum++;
-av = malloc(sizeof(char *) * sum);
-y = strtok(b, c);
-for (e = 0; y != NULL; e++)
-{
-av[e] = malloc(sizeof(char) * strlen(y));
-strcpy(av[e], y);
-y = strtok(NULL, c);
-}
-av[e] = NULL;
+av = args(i);
 excu(av);
 }
-free(x);
-free(b);
 }

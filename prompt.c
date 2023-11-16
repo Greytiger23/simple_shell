@@ -13,5 +13,6 @@
 
 void myprompt(void)
 {
-mess("simple_shell$ ");
+printf("simple_shell$ ");
+fflush(stdout);
 }

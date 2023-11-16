@@ -13,14 +13,9 @@
 
 void excu(char **b)
 {
-char *a = NULL;
-if (b)
-{
-a = b[0];
-if (execve(a, b, NULL) == -1)
+if (execve(b[0], b, NULL) == -1)
 {
 perror("Error: there is no file\n");
 exit(EXIT_FAILURE);
-}
 }
 }

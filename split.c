@@ -32,7 +32,7 @@ sum++;
 if (sum >= buff)
 {
 buff += MAX_BUFFER_SIZE;
-c = realloc(c, buff *sizeof(char *));
+c = malloc(buff *sizeof(char *));
 if (!c)
 {
 mess("shell: allocation error\n");

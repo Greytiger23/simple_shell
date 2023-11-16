@@ -14,7 +14,8 @@ void mess(const char *a);
 char **split(char *b);
 void excu(char **b);
 void myline(char *b, size_t x);
-void argu(char *b);
+char **args(char *b);
 void print_env(void);
 void loop(void);
+void menv(int ac, char **av, char **env);
 #endif
