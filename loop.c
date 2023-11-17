@@ -8,20 +8,20 @@
 
 /**
  * loop - loop function
- * @av: char
+ * @n: char
  * @env: enviroment
  * Return: void
  */
 
-void loop(char **av, char **env)
+void loop(char **n, char **env)
 {
 char *i = NULL;
 int d;
+pid_t child_pid;
 while (1)
 {
 myprompt();
 myline(i, sizeof(i));
-av = args(i);
 child_pid = fork();
 if (child_pid == -1)
 {
@@ -30,7 +30,7 @@ exit(EXIT_FAILURE);
 }
 if (child_pid == 0)
 {
-excu(av);
+excu(n, env);
 }
 else
 {

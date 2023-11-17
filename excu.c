@@ -8,14 +8,20 @@
 /**
  * excu - execute function
  * @b: char
+ * @env: char
  * Return: void
  */
 
-void excu(char **b)
+void excu(char **b, char **env)
 {
-if (execve(b[0], b, NULL) == -1)
+char *a = NULL;
+if (b)
+{
+a = b[0];
+if (execve(a, b, env) == -1)
 {
 perror("Error: there is no file\n");
 exit(EXIT_FAILURE);
+}
 }
 }
