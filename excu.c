@@ -8,19 +8,31 @@
 /**
  * excu - execute function
  * @b: char
- * @env: char
  * Return: void
  */
 
-void excu(char **b, char **env)
+void excu(char **b)
 {
-char *a = NULL;
-if (b)
+int s;
+pid_t pid = fork();
+if (pid == -1)
 {
-a = b[0];
-if (execve(a, b, env) == -1)
+perror("fork");
+exit(EXIT_FAILURE);
+}
+if (pid == 0)
 {
-perror("Error: there is no file\n");
+if (execve(b[0], b, NULL) == -1)
+{
+perror("exec");
+exit(EXIT_FAILURE);
+}
+}
+else
+{
+if (wait(&s) == -1)
+{
+perror("wait");
 exit(EXIT_FAILURE);
 }
 }

@@ -15,17 +15,19 @@
  * Return: void
  */
 
-int main(int ac, char **av, char **env)
+int m(int ac, char **av, char **env)
 {
-if (ac <= -1)
+char *a;
+(void)ac;
+(void)env;
+while (1)
 {
-exit(EXIT_FAILURE);
+myprompt();
+a = myline();
+av = args(a);
+excu(av);
 }
-if (ac == 1)
-{
-loop(av, env);
-}
-printf("Exiting shell...\n");
+free(a);
 return (0);
 }
 

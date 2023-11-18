@@ -8,33 +8,53 @@
 
 /**
  * loop - loop function
+ * @a: number of arguments
  * @n: char
  * @env: enviroment
  * Return: void
  */
 
-void loop(char **n, char **env)
+void loop(int a, char **n, char **env)
 {
-char *i = NULL;
-int d;
-pid_t child_pid;
+char *i = NULL, *b = NULL, *y;
+ssize_t x;
+size_t d = 0;
+int e, sum = 0;
+const char *c = " \n";
+(void)a;
+(void)env;
 while (1)
 {
 myprompt();
-myline(i, sizeof(i));
-child_pid = fork();
-if (child_pid == -1)
+x = getline(&i, &d, stdin);
+if (x == -1)
 {
-free(i);
+perror("Error reading command\n");
 exit(EXIT_FAILURE);
 }
-if (child_pid == 0)
+b[strcspn(b, "\n")] = '\0';
+b = malloc(sizeof(char) * x);
+if (b == NULL)
 {
-excu(n, env);
+perror("Error: memory allocation\n");
 }
-else
+strcpy(b, i);
+y = strtok(i, c);
+while (y != NULL)
 {
-wait(&d);
+sum++;
+y = strtok(NULL, c);
 }
+sum++;
+n = malloc(sizeof(char *) * sum);
+y = strtok(b, c);
+for (e = 0; y != NULL; e++)
+{
+n[e] = malloc(sizeof(char) * strlen(y));
+strcpy(n[e], y);
+y = strtok(NULL, c);
+}
+n[e] = NULL;
+excu(n);
 }
 }

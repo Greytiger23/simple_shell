@@ -13,13 +13,14 @@
  * Return: void
  */
 
-void myline(char *b, size_t x)
+char *myline(void)
 {
+char *b = NULL;
+size_t x = 0;
 if (getline(&b, &x, stdin) == -1)
 {
 if (feof(stdin))
 {
-mess("\n");
 exit(EXIT_SUCCESS);
 }
 else
@@ -28,5 +29,5 @@ perror("Error reading command\n");
 exit(EXIT_FAILURE);
 }
 }
-b[strcspn(b, "\n")] = '\0';
+return (b);
 }

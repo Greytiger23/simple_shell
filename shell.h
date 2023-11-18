@@ -12,11 +12,11 @@ void _stat(int ac, char *av[]);
 void myprompt(void);
 void mess(const char *a);
 char **split(char *b);
-void excu(char **b, char **env);
-void myline(char *b, size_t x);
+void excu(char **b);
+char *myline(void);
 char **args(char *b);
 void print_env(void);
-void loop(char **av, char **env);
-int main(int ac, char **av, char **env);
+void loop(int a, char **av, char **env);
+int m(int ac, char **av, char **env);
 void menv(int ac, char **av, char **env);
 #endif
