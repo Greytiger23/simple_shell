@@ -15,9 +15,11 @@
 
 int main(void)
 {
-char *b, *av[MAX_ARGS], *y;
-int a = 0;
+char *b;
 size_t x;
+int s = 0;
+char *av[MAX_ARGS];
+pid_t child_pid = fork();
 while (1)
 {
 myprompt();
@@ -27,16 +29,21 @@ printf("Exiting shell.\n");
 break;
 }
 b[strlen(b) - 1] = '\0';
-y = strtok(b, " ");
-while (y != NULL && a < MAX_ARGS)
+if (child_pid == -1)
 {
-av[a] = y;
-y = strtok(NULL, " ");
-a++;
+perror("fork");
 }
-av[a] = NULL;
-excu(av);
+if (child_pid == 0)
+{
+if (execve(av[s], av, NULL) == -1)
+{
+perror("Error executing command");
+exit(EXIT_FAILURE);
+s++;
 }
+}
+}
+printf("Exiting shell\n");
 return (0);
 }
 

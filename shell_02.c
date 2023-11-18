@@ -16,11 +16,11 @@ char **args(char *b)
 char **av = NULL;
 char *x = strtok(b, " ");
 int ac = 0;
-while (x != NULL)
+while (x != NULL && ac < MAX_ARGS)
 {
 av[ac] = x;
-ac++;
 x = strtok(NULL, " ");
+ac++;
 }
 av[ac] = NULL;
 return (av);

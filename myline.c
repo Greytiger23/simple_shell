@@ -8,8 +8,6 @@
 
 /**
  * myline - function that gets the command
- * @b: char
- * @x: size of char
  * Return: void
  */
 

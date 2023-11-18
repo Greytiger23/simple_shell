@@ -17,8 +17,6 @@
 void loop(int a, char **n, char **env)
 {
 char *i = NULL, *b = NULL, *y;
-ssize_t x;
-size_t d = 0;
 int e, sum = 0;
 const char *c = " \n";
 (void)a;
@@ -26,12 +24,7 @@ const char *c = " \n";
 while (1)
 {
 myprompt();
-x = getline(&i, &d, stdin);
-if (x == -1)
-{
-perror("Error reading command\n");
-exit(EXIT_FAILURE);
-}
+b = myline();
 b[strcspn(b, "\n")] = '\0';
 b = malloc(sizeof(char) * x);
 if (b == NULL)

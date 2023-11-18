@@ -13,27 +13,9 @@
 
 void excu(char **b)
 {
-int s;
-pid_t pid = fork();
-if (pid == -1)
-{
-perror("fork");
-exit(EXIT_FAILURE);
-}
-if (pid == 0)
-{
 if (execve(b[0], b, NULL) == -1)
 {
-perror("exec");
+perror("Error executing command");
 exit(EXIT_FAILURE);
-}
-}
-else
-{
-if (wait(&s) == -1)
-{
-perror("wait");
-exit(EXIT_FAILURE);
-}
 }
 }

@@ -8,7 +8,7 @@
 #define MAX_INPUT_SIZE 1024
 
 /**
- * main - entry point
+ * m - entry point
  * @ac: number of argu
  * @av: array of argu
  * @env: envi

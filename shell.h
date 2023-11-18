@@ -19,4 +19,7 @@ void print_env(void);
 void loop(int a, char **av, char **env);
 int m(int ac, char **av, char **env);
 void menv(int ac, char **av, char **env);
+void _fork(char *av[]);
+void myexit(char *b);
+void myenv(char *b);
 #endif
